@@ -1,8 +1,8 @@
 AutomatedMakefile = am
 CC = g++
 
-FILES = 
-EXECUTABLE = 
+FILES = CLGUI.cpp CLGUIDriver.cpp
+EXECUTABLE = MyProgram
 
 PROJECT_PATH = $(PROJECT_DIR)
 GTK_PATH = /$(DRIVE_LETTER)/MinGW/GTK
@@ -13,10 +13,9 @@ LIB_DIRS = -L$(PROJECT_PATH)/CSC2110 -L$(PROJECT_PATH)/GUI  -L$(GTK_PATH)/lib -L
 LIBS = -lCSC2110 -lgui -lgtkmm-3.0 -latkmm-1.6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lglibmm-2.4 -lgtk-3 -lgdk-3 -lgdi32 -limm32 -lshell32 -lole32 -Wl,-luuid -lpangocairo-1.0 -lpangoft2-1.0 -lfreetype -lfontconfig -lpangowin32-1.0 -lgdi32 -lpango-1.0 -lm -latk-1.0 -lcairo-gobject -lgio-2.0 -lcairomm-1.0 -lcairo -lsigc-2.0 -lgdk_pixbuf-2.0 -lgobject-2.0 -lglib-2.0 -lintl
 
 COMPILE = $(CC) $(INC_DIRS) -c
-LINK = $(CC) $(LIB_DIRS) -o
+LINK = $(CC) $(INC_DIRS) $(LIB_DIRS) -o
 
 all: Project
 
 Project: 		$(FILES)
 			$(LINK) $(EXECUTABLE) $(FILES) $(LIBS)
-
